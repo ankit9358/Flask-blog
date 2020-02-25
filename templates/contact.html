@@ -1,0 +1,79 @@
+{% extends "basic.html" %}
+
+{% block bootstrap %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+{% endblock %}
+
+{% block css %}
+    <link href="{{ url_for('static', filename='css/edit.css') }}" rel="stylesheet" media="all">
+{% endblock %}
+
+{% block body %}
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/contact-bg.jpg') }}'); margin-bottom: 0px">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Contact Me</h1>
+              <span class="subheading">Have questions? I have answers.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div style="background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);" class="card card-6">
+        <div class="card-heading">
+            <h2 class="title" >EDIT HERE</h2>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/contact">
+                <div class="form-row">
+                    <div class="name">Name</div>
+                    <div class="value">
+                        <input placeholder="Name" class="input--style-6" type="text" id="tittle" name="name" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="name">Email</div>
+                    <div class="value">
+                        <div class="input-group">
+                            <input class="input--style-6" type="email" name="email" placeholder="Email" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="name">Phone Number</div>
+                    <div class="value">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" name="phone" placeholder="Phone Number" required >
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="name">Message</div>
+                    <div class="value">
+                        <div class="input-group">
+                            <textarea class="textarea--style-6" name="message" placeholder="Message" ></textarea>
+                        </div>
+                    </div>
+                </div>
+        <div class="card-footer">
+            <button class="btn btn--radius-2 btn--blue-2" type="submit">Send Message</button>
+        </div>
+        </form>
+        </div>
+    </div>
+    {% endblock %}
+    {% block copyright %}
+        {{params['blog_name']}}
+    {% endblock %}
+
+    {% block js %}
+        <script src="{{ url_for('static', filename='vendor/jquery_edit/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/global.js') }}"></script>
+    {% endblock %}
+

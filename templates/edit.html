@@ -1,0 +1,101 @@
+{% extends "basic.html" %}
+
+{% block bootstrap %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+{% endblock %}
+
+{% block css %}
+    <link href="{{ url_for('static', filename='css/edit.css') }}" rel="stylesheet" media="all">
+{% endblock %}
+
+{% block body %}
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/hy.jpg') }}'); margin-bottom: 0px">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>{{params['blog_name']}}</h1>
+              <span class="subheading">{{params['tag_line']}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div style="background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);" class="card card-6">
+        <div class="card-heading">
+            <h2 class="title" >EDIT HERE</h2>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/edit/{{sno}}" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="name">Tittle</div>
+                    <div class="value">
+                        <input placeholder="Tittle of blog" class="input--style-6" type="text" id="tittle" name="tittle" value="{{ posts.tittle }}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="name">Sub Tittle</div>
+                    <div class="value">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" name="subtittle" placeholder="Sub Tittle of blog" value="{{ posts.sub_tittle }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="name">Slug</div>
+                    <div class="value">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" name="Slug" placeholder="Slug" value="{{ posts.slug }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="name">Content</div>
+                    <div class="value">
+                        <div class="input-group">
+                            <textarea class="textarea--style-6" name="content" placeholder="Content of blog" >{{ posts.content }}</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!--for testing-->
+                <!--<div class="form-row">-->
+                    <!--<div class="name">image</div>-->
+                    <!--<div class="value">-->
+                        <!--<div class="input-group">-->
+                            <!--<input class="input&#45;&#45;style-6" type="text" name="image" placeholder="image" value="{{ posts.img_file }}">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--rnd testing-->
+                <div class="form-row">
+                    <div class="name">Image</div>
+                    <div class="value">
+                        <div class="input-group js-input-file">
+                            <input class="input-file" type="file" name="file_img" id="file" >
+                            <label class="label--file" for="file">Choose file</label>
+                            <span class="input-file__info">{{ posts.img_file }}</span>
+                        </div>
+                        <div class="label--desc">Upload your image here. Max file size 50 MB</div>
+                    </div>
+                </div>
+        <div class="card-footer">
+            <button class="btn btn--radius-2 btn--blue-2" type="submit">Post Blog</button>
+        </div>
+        </form>
+        </div>
+    </div>
+    {% endblock %}
+    {% block copyright %}
+        {{params['blog_name']}}
+    {% endblock %}
+
+    {% block js %}
+        <script src="{{ url_for('static', filename='vendor/jquery_edit/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/global.js') }}"></script>
+    {% endblock %}
+

@@ -1,0 +1,21 @@
+{
+  "params":
+  {
+    "local_server": "True",
+    "local_uri": "mysql+pymysql://root:@localhost/blog",
+    "prod_uri": "mysql+pymysql://root:@localhost/blog",
+    "fb_url": " ",
+    "tw_url": " ",
+    "gh_url": " ",
+    "blog_name": "Augustu",
+    "tag_line": "A blog for the people who are funny",
+    "about": "Hi I am Ankit and I am Hero",
+    "gmail-user":"************",
+    "gmail-password":"***********",
+    "no_of_posts": 3,
+    "username": "ankit9358",
+    "password": "tikna321",
+    "Admin_Name": "Ankit",
+    "upload_location": "C:\\Users\\user\\Desktop\\Project\\myBlog_2\\static\\img"
+  }
+}
